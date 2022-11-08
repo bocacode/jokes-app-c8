@@ -9,7 +9,7 @@ import Another from './components/Another';
 
 export default function App() {
   // create state to hold jokes
-  const [jokeList, setJokeList] = useState([]);
+  const [jokeList, setJokeList] = useState();
   // create state to hold last joke index
   const [currentJokeIndex, setCurrentJokeIndex] = useState(0);
   // create function to get another
@@ -29,7 +29,7 @@ export default function App() {
   }, [])
   return (
     <View style={styles.container}>
-      {jokeList
+      {jokeList && jokeList.length
         ? <>
           <Joke joke={jokeList[currentJokeIndex].setup} />
           <Punchline punchline={jokeList[currentJokeIndex].punchline} />
